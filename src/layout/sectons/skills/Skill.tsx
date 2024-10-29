@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
+import {FlexWrapper} from "../../../components/FlexWrapper";
+import {font} from "../../../styles/Common";
+import {theme} from "../../../styles/Theme";
 
 type SkillPropsType = {
     title: string
@@ -9,38 +12,38 @@ type SkillPropsType = {
 export const Skill = (props: SkillPropsType) => {
     return (
         <StyledSkill>
-            <SkillTitle>{props.title}</SkillTitle>
-            <SkillDescription>{props.description}</SkillDescription>
+            <FlexWrapper direction={'column'} gap={'5'}>
+                <SkillTitle>{props.title}</SkillTitle>
+                <SkillDescription>{props.description}</SkillDescription>
+            </FlexWrapper>
         </StyledSkill>
     );
 };
 
 const StyledSkill = styled.li`
-    max-width: 325px;
-    position: relative;
-    
-    :before {
-        position: absolute;
-        top: 40px;
+    max-width: 440px;
+    height: 100%;
+    display: flex;
+    gap: 35px;
+
+    ::before {
+        content: counter(list-item, decimal-leading-zero) '.';
+        counter-increment: list-item;
+        
+        ${font({weight: 100, Fmax: 70, Fmin: 45, color: "secondaryFont"})}
+        
+        vertical-align: middle;
     }
     
-    ::marker {
-        position: absolute;
-        top: 40px;
-
-        font-size: 70px;
-        font-weight: 100;
+    @media ${theme.media.mobile} {
+        gap: 26px;
     }
 `
 
 const SkillTitle = styled.h3`
-    font-size: 30px;
-    font-weight: 200;
-    
-    margin-bottom: 5px;
+    ${font({weight: 200, Fmax: 30, Fmin: 25, color: 'secondaryFont'})}
 `
 
 const SkillDescription = styled.p`
-    font-size: 18px;
-    font-weight: 100;
+    ${font({weight: 100, Fmax: 18, Fmin: 14, color: 'secondaryFont'})}
 `

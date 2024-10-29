@@ -1,23 +1,23 @@
 import React from 'react';
 import styled from "styled-components";
-import {theme} from "../../styles/Theme";
+import {theme} from "../../../styles/Theme";
 
 
 
-export const Menu = (props: {menuItems: Array<string>}) => {
+export const HeaderMenu = (props: {menuItems: Array<string>}) => {
     return (
-        <StyledMenu>
+        <StyledHeaderMenu>
             <ul>
                 {props.menuItems.map((item, index)=>{
                     console.log(item)
                     if (item === "Let's Talk") {
-                        return <MainButton key={index}>
-                            <a href="">{item}</a>
-                        </MainButton>
+                        return <ListButton key={index}>
+                            <Link href="">{item}</Link>
+                        </ListButton>
                     } else {
-                        return <li key={index}>
-                            <a href="">{item}</a>
-                        </li>
+                        return <ListItem key={index}>
+                            <Link href="">{item}</Link>
+                        </ListItem>
                     }
                 })
 
@@ -25,11 +25,11 @@ export const Menu = (props: {menuItems: Array<string>}) => {
 
 
             </ul>
-        </StyledMenu>
+        </StyledHeaderMenu>
     );
 };
 
-const StyledMenu = styled.nav`
+const StyledHeaderMenu = styled.nav`
     ul {
         display: flex;
         align-items: center;
@@ -45,9 +45,14 @@ const StyledMenu = styled.nav`
     }
 `
 
-const MainButton = styled.li`
+const ListItem = styled.li`
+
+`
+
+const ListButton = styled.li`
     background-color: ${theme.colors.primaryFont};
-    padding: 8px 20px;
+    padding: 10px 20px;
+    font-weight: 300;
     
     a {
         color: ${theme.colors.secondaryFont};
@@ -56,4 +61,8 @@ const MainButton = styled.li`
     a:visited {
         color: ${theme.colors.secondaryFont};
     }
+`
+
+const Link = styled.a`
+
 `

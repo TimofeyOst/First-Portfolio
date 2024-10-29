@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
 import {Skill} from "./Skill";
-import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Container} from "../../../components/Container";
+import {theme} from "../../../styles/Theme";
 
 export const Skills = () => {
     return (
         <StyledSkills>
-            {/*<FlexWrapper justify={'center'} wrap={'wrap'} gap={'50px'}>*/}
-            <Container width={'1336'}>
+
+            <Container width={'1400'}>
                 <SkillsList>
                     <Skill title={'React'}
                            description={'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue'}></Skill>
@@ -30,16 +30,26 @@ export const Skills = () => {
 };
 
 const StyledSkills = styled.section`
-    margin: 0;
     padding-top: 102px;
     padding-bottom: 144px;
+    display: flex;
+    
+    @media ${theme.media.mobile} {
+        padding: 42px 15px;
+    }
 `
 
 const SkillsList = styled.ul`
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: stretch;
     flex-wrap: wrap;
-    gap: 50px;
-
-    list-style-type: decimal-leading-zero;
+    column-gap: 8px;
+    row-gap: 59px;
+    
+    list-style-type: none;
+    
+    @media ${theme.media.mobile} {
+        row-gap: 40px;
+    }
 `

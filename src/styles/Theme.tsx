@@ -5,5 +5,10 @@ export const theme = {
 
         primaryFont: '#2D2C2C',
         secondaryFont: '#fff',
+    },
+
+    media: {
+      tablet: 'screen and (max-width:768px)',
+      mobile: 'screen and (max-width:576px)'
     }
 }

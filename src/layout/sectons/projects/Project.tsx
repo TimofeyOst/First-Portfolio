@@ -2,31 +2,35 @@ import React from 'react';
 import styled from "styled-components";
 import {Icon} from "../../../components/icon/Icon";
 import {FlexWrapper} from "../../../components/FlexWrapper";
-import {Container} from "../../../components/Container";
+import {theme} from "../../../styles/Theme";
+import {font} from "../../../styles/Common";
 
 type ProjectPropsType = {
     background: string
     span?: string
-    title?: string
+    firstPartTitle?: string
+    secondPartTitle?: string
     description?: string
 }
 
 export const Project = (props: ProjectPropsType) => {
     return (
         <StyledProject background={props.background}>
-            {/*<Container width={'947'}>*/}
-                <FlexWrapper justify={'space-between'}>
-                    <FlexWrapper direction={'column'} gap={'16'}>
-                        <Topic>{props.span}</Topic>
-                        <ProjectTitle>{props.title}</ProjectTitle>
-                    </FlexWrapper>
-                    <FlexWrapper direction={'column'} gap={'24'} justify={'flex-end'}>
-                        <ProjectDescription>{props.description}</ProjectDescription>
-                        <ProjectLink>View More
-                            <Icon iconId={"arrowRight"} width={"16"} height={'16'} viewBox={'0 0 16 16'}/></ProjectLink>
-                    </FlexWrapper>
-                </FlexWrapper>
-            {/*</Container>*/}
+
+
+            <FlexWrapper direction={'column'} gap={'16'}>
+                <Topic>{props.span}</Topic>
+                <ProjectTitle><ThinTitle>{props.firstPartTitle}_</ThinTitle>{props.secondPartTitle}
+                </ProjectTitle>
+            </FlexWrapper>
+            <FlexWrapper direction={'column'} gap={'40'} justify={'flex-end'} align={'space-'}>
+                <ProjectDescription>{props.description}</ProjectDescription>
+                <ProjectLink>View More
+                    <Icon iconId={"arrowRight"} width={"16"} height={'16'} viewBox={'0 0 16 16'}/>
+                </ProjectLink>
+            </FlexWrapper>
+
+
         </StyledProject>
     );
 };
@@ -35,13 +39,24 @@ const StyledProject = styled.div<ProjectPropsType>`
     background: linear-gradient(
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)),
-            url(${props => props.background});
+    url(${props => props.background}) no-repeat;
+    background-size: cover;
+    background-position-x: center;
+
     min-height: 447px;
+    max-height: 619px;
     color: white;
-    
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
     padding: 92px 46px 100px;
-    
-    height: 100%;
+
+    @media ${theme.media.mobile} {
+        padding: 62px 21px 62px;
+        height: 619px;
+    }
 `
 
 const Topic = styled.span`
@@ -49,24 +64,30 @@ const Topic = styled.span`
     font-weight: 500;
 `
 
+const ThinTitle = styled.h3`
+    font-weight: 100;
+    font-size: inherit;
+`
+
 const ProjectTitle = styled.h3`
-    font-size: 45px;
+    ${font({weight: 800, Fmax: 45, Fmin: 43, color: 'secondaryFont'})};
+
     max-width: 433px;
 
     white-space: pre-wrap;
     line-height: 120%;
-    
-    :first-line {
-        font-weight: 200;
-    }
 `
 
 const ProjectDescription = styled.p`
     font-size: 18px;
     font-weight: 300;
     line-height: 150%;
-    
+
     max-width: 433px;
+
+    text-overflow: clip;
+    white-space: wrap;
+    overflow: hidden;
 `
 
 const ProjectLink = styled.a`
@@ -74,6 +95,8 @@ const ProjectLink = styled.a`
     height: 40px;
     display: flex;
     align-items: center;
-    
+    line-height: 150%;
+    font-weight: 300;
+
     cursor: pointer;
 `

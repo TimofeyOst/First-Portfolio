@@ -20,5 +20,5 @@ export const FlexWrapper = styled.div<FlexWrapperPropsType>`
     
     position: relative;
     
-    height: 100%;
+    //height: 100%;
 `

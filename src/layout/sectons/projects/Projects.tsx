@@ -16,18 +16,18 @@ export const Projects = () => {
                 <FlexWrapper direction={'column'} gap={'78'}>
                     <Project background={BG1}
                              span={"Mental Health"}
-                             title={'A Case Study_\n' +
-                                 'Find Peace in Meditation'}
+                             firstPartTitle={'A Case Study'}
+                             secondPartTitle={'Find Peace in Meditation'}
                              description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.'}></Project>
                     <Project background={BG2}
                              span={"Fashion Show"}
-                             title={'A Case Study_\n' +
-                                 'Enjoy Fashion Shows From Home'}
+                             firstPartTitle={'A Case Study'}
+                             secondPartTitle={'Enjoy Fashion Shows From Home'}
                              description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.'}></Project>
                     <Project background={BG3}
                              span={"Barbeque"}
-                             title={'Branding_\n' +
-                                 'Chicken Barbeque Never Goes Wrong\n'}
+                             firstPartTitle={'Branding'}
+                             secondPartTitle={'Chicken Barbeque Never Goes Wrong'}
                              description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.'}></Project>
                 </FlexWrapper>
             </Container>
@@ -37,4 +37,5 @@ export const Projects = () => {
 
 const StyledProjects = styled.section`
     padding: 170px 0;
+    display: flex;
 `
